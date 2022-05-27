@@ -1,0 +1,55 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Areas/Identity/Pages/_AuthLayout.cshtml";
+}
+
+<div class="col-md-10 offset-md-1">
+    <h1 class="singup-title">Create your account</h1>
+    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row">
+            <dvi class="col-md-6">
+                <div class="form-group text-dark">
+                    <input asp-for="Input.FirstName" class="form-control signup-field" placeholder="first name"/>
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
+            </dvi>
+            <dvi class="col-md-6">
+                <div class="form-group text-dark">
+                    <input asp-for="Input.LastName" class="form-control signup-field" placeholder="last name"/>
+                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                </div>
+            </dvi>
+        </div>
+        <div class="form-group text-dark">
+            <input asp-for="Input.Email" class="form-control signup-field" placeholder="email"/>
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group text-dark">
+            <input asp-for="Input.PhoneNumber" class="form-control signup-field" placeholder="phone number"/>
+            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-dark">
+                <div class="form-group">
+                    <input asp-for="Input.Password" class="form-control signup-field" placeholder="password"/>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6 text-dark">
+                <div class="form-group">
+                    <input asp-for="Input.ConfirmPassword" class="form-control signup-field" placeholder="confirm password"/>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="signup-fields-submit">Register</button>
+    </form>
+</div>
+        
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
